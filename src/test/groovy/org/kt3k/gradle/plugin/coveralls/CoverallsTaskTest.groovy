@@ -118,7 +118,7 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = Mockito.mock Logger.class
+		task.logger = Mockito.mock Logger
 
 		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
 
