@@ -8,6 +8,9 @@ jdk:
 env:
 - TERM=dumb
 
+before_script:
+- groovy -e 'class A{int getFoo(){1}};class B extends A{int foo=2};B b = new B();println b.foo'
+
 after_success:
 - gradle cobertura
 - ./coveralls.groovy
