@@ -9,7 +9,7 @@ env:
 - TERM=dumb
 
 before_script:
-- groovy -e 'class A{int getFoo(){1}};class B extends A{int foo=2};B b = new B();println b.foo'
+- groovy -e 'class A{int getFoo(){1}};class B extends A{int foo};B b=new B();b.foo=2;println b.foo'
 
 after_success:
 - gradle cobertura
