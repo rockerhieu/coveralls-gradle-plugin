@@ -12,5 +12,9 @@ after_success:
 - gradle cobertura
 - ./coveralls.groovy
 
+script:
+- a
+- gradle check
+
 after_failure:
 - gradle clean check --debug
