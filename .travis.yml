@@ -3,6 +3,7 @@
 language: groovy
 
 jdk:
+- oraclejdk6
 - oraclejdk7
 
 env:
