@@ -7,7 +7,7 @@ class ReportTest {
 
 	@Test
 	void testConstructor() {
-		Report report = new Report(new ServiceInfo('xyz-ci', '12345678', null), [new SourceReport('Test.java', 'class Test {}', [1])])
+		Report report = new Report(new ServiceInfo('xyz-ci', '12345678', null), null, [new SourceReport('Test.java', 'class Test {}', [1])])
 
 		assertNotNull report
 		assertEquals 'xyz-ci', report.service_name
@@ -17,7 +17,7 @@ class ReportTest {
 
 	@Test
 	void testToJson() {
-		Report report = new Report(new ServiceInfo('xyz-ci', '12345678', null), [new SourceReport('Test.java', 'class Test {}', [1])])
+		Report report = new Report(new ServiceInfo('xyz-ci', '12345678', null), null, [new SourceReport('Test.java', 'class Test {}', [1])])
 		assertEquals '{"service_job_id":"12345678","service_name":"xyz-ci","source_files":[{"coverage":[1],"source":"class Test {}","name":"Test.java"}]}', report.toJson()
 		report = new Report(new ServiceInfo('xyz-ci', '12345678', 'ABCDEF'), [new SourceReport('Test.java', 'class Test {}', [1])])
 		assertEquals '{"repo_token":"ABCDEF","service_job_id":"12345678","service_name":"xyz-ci","source_files":[{"coverage":[1],"source":"class Test {}","name":"Test.java"}]}', report.toJson()

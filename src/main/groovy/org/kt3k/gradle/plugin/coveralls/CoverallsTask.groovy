@@ -119,7 +119,9 @@ class CoverallsTask extends DefaultTask {
 			return
 		}
 
-		Report rep = new Report(serviceInfo, sourceReports)
+		// create git info from environmental variables
+		GitInfo gitInfo = GitInfoFactory.createFromEnvVar this.env
+		Report rep = new Report(serviceInfo, gitInfo, sourceReports)
 
 		String json = rep.toJson()
 		this.logger.info json

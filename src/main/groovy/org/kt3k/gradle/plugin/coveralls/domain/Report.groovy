@@ -13,9 +13,10 @@ class Report {
 	String service_build_url
 	String service_branch
 	String service_pull_request
+	GitInfo git;
 	List<SourceReport> source_files
 
-	public Report(ServiceInfo serviceInfo, List<SourceReport> sourceFiles) {
+	public Report(ServiceInfo serviceInfo, GitInfo git, List<SourceReport> sourceFiles) {
 		this.service_name = serviceInfo.serviceName
 		this.service_number = serviceInfo.serviceNumber
 		this.service_build_url = serviceInfo.serviceBuildUrl
@@ -23,6 +24,7 @@ class Report {
 		this.service_job_id = serviceInfo.serviceJobId
 		this.service_pull_request = serviceInfo.servicePullRequest
 		this.repo_token = serviceInfo.repoToken
+		this.git = git
 		this.source_files = sourceFiles
 	}
 
